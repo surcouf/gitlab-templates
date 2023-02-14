@@ -15,19 +15,11 @@ before_script:
   - curl -fSs https://forge.dgfip.finances.rie.gouv.fr/dgfip/design/rpm/macros/-/raw/master/macros.rpmautospec -o ~/.rpmmacros
   - ln -s /home/rpmbuilder/rpmbuild/${ARCH}/RPMS
 
-# executed after each job
-after_script:
-  #- rm secrets
-
-cache:
-  paths:
-  #- vendor/
-
 .buildrpm: &buildrpm
   tags:
     - rpmbuild
   script:
-    - rpmbuild -ba rpmautospec.spec
+    - make srpm rpm
     - cp "/home/rpmbuilder/rpmbuild/RPMS/${ARCH}/${CI_PROJECT_NAME}-${VERSION}-${RELEASE}.${ARCH}.rpm" /var/tmp
     - cp "/home/rpmbuilder/rpmbuild/SRPMS/${CI_PROJECT_NAME}-${VERSION}-${RELEASE}.src.rpm" /var/tmp
   only:
