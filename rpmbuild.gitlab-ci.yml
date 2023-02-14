@@ -12,11 +12,7 @@ stages:
 
 # executed before each job
 before_script:
-  # extract semantic version out of git tag
-  # must be in format "1.0.3"
-  - export VERSION="${CI_COMMIT_TAG}"
-  - export RELEASE="$(rpmspec -q --qf '%{release}' ${CI_PROJECT_NAME}.spec)"
-  - echo "${VERSION}"
+  - curl -fSs https://forge.dgfip.finances.rie.gouv.fr/dgfip/design/rpm/macros/-/raw/master/macros.rpmautospec -o ~/.rpmmacros
   - ln -s /home/rpmbuilder/rpmbuild/${ARCH}/RPMS
 
 # executed after each job
