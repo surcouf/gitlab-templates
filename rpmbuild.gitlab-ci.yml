@@ -12,7 +12,7 @@ stages:
 
 # executed before each job
 before_script:
-  - curl -fSs --noproxy 'rie.gouv.fr' https://forge.dgfip.finances.rie.gouv.fr/dgfip/design/rpm/macros/-/raw/master/macros.rpmautospec -o ~/.rpmmacros
+  - curl -fSs --noproxy 'rie.gouv.fr' https://forge.dgfip.finances.rie.gouv.fr/dgfip/design/rpm/macros/-/raw/master/macros.rpmautospec >> ~/.rpmmacros
   - ln -s /home/rpmbuilder/rpmbuild/${ARCH}/RPMS
 
 .buildrpm: &buildrpm
@@ -30,7 +30,7 @@ before_script:
 buildrpm/el8:
   <<: *buildrpm
   stage: buildrpm
-  image: jc21/rpmbuild-rocky8
+  image: rbordet/rpmbuild-rocky8
   variables:
     DIST: el8
 
