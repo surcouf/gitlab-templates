@@ -12,7 +12,7 @@ stages:
 
 # executed before each job
 before_script:
-  - curl -fSs --noproxy 'rie.gouv.fr' https://forge.dgfip.finances.rie.gouv.fr/dgfip/design/rpm/macros/-/raw/master/macros.rpmautospec >> ~/.rpmmacros
+  - curl -fSs --noproxy 'rie.gouv.fr' https://gitlab-ci-token:${CI_JOB_TOKEN}@forge.dgfip.finances.rie.gouv.fr/dgfip/design/rpm/macros/-/raw/master/macros.rpmautospec >> ~/.rpmmacros
   - ln -s /home/rpmbuilder/rpmbuild/${ARCH}/RPMS
 
 .buildrpm: &buildrpm
