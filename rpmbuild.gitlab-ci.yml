@@ -13,7 +13,6 @@ stages:
 # executed before each job
 before_script:
   - curl -fSs --noproxy 'rie.gouv.fr' https://forge.dgfip.finances.rie.gouv.fr/dgfip/design/rpm/macros/-/raw/master/macros.rpmautospec >> ~/.rpmmacros
-  - id
   - ls -la
   - git config --global --add safe.directory ${PWD}
   - export VERSION="${CI_COMMIT_TAG}"
