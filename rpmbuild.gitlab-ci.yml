@@ -14,7 +14,6 @@ stages:
 before_script:
   - curl -fSs --noproxy 'rie.gouv.fr' https://forge.dgfip.finances.rie.gouv.fr/dgfip/design/rpm/macros/-/raw/master/macros.rpmautospec >> ~/.rpmmacros
   - id
-  - pwd
   - ls -la
   - export VERSION="${CI_COMMIT_TAG}"
   - export RELEASE="$(rpmspec -q --qf '%{release}' ${CI_PROJECT_NAME}.spec)"
