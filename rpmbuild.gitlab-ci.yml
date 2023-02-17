@@ -4,6 +4,7 @@
 
 # variables
 variables:
+  GIT_SUBMODULE_STRATEGY: recursive
   ARCH: noarch
    
 # The ordering of elements in stages defines the ordering of jobs' execution
