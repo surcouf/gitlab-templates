@@ -41,6 +41,6 @@ buildrpm/el8:
 buildrpm/el7:
   <<: *buildrpm
   stage: buildrpm
-  image: jc21/rpmbuild-centos7
+  image: rbordet/rpmbuild-centos7
   variables:
     DIST: el7
