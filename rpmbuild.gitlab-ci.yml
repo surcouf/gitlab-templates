@@ -34,6 +34,13 @@ before_script:
   except:
     - branches
 
+buildrpm/el9:
+  <<: *buildrpm
+  stage: buildrpm
+  image: rbordet/rpmbuild-rocky9
+  variables:
+    DIST: el9
+
 buildrpm/el8:
   <<: *buildrpm
   stage: buildrpm
