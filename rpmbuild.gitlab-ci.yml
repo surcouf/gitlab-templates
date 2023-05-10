@@ -21,7 +21,7 @@ before_script:
   - export NAME=${CI_PROJECT_NAME}
   - export VERSION="${CI_COMMIT_TAG}"
   - export RELEASE="$(rpmspec -q --qf '%{release}' ${CI_PROJECT_NAME}.spec)"
-  - sudo yum-config-manager --set-disabled appstream,baseos,extras,epel,powertools,jc21
+  - sudo sed -i -e '/enable/ s/1/0/' /etc/yum.repos.d/*.repo
   - sudo yum-config-manager --add-repo=${CONFIG_REPO_URL}
 
 .buildrpm: &buildrpm
