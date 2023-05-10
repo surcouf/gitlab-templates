@@ -19,6 +19,7 @@ before_script:
   - git config --global --add safe.directory ${PWD}
   - export VERSION="${CI_COMMIT_TAG}"
   - export RELEASE="$(rpmspec -q --qf '%{release}' ${CI_PROJECT_NAME}.spec)"
+  - sudo yum-config-manager --set-disabled baseos,extras,epel,powertools,jc21
 
 .buildrpm: &buildrpm
   tags:
