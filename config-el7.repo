@@ -1,13 +1,13 @@
-[addons-socle-2016-0.14-x86_64-20230425]
-name = addons-socle-2016-0.14-x86_64-20230425
-baseurl = http://repo.infra.dgfip/pub/socles/socle-2016-0.14-x86_64/repos/addons-socle-2016-0.14-x86_64-20230425
+[addons-socle-2016-0.14-x86_64-20230303]
+name = addons-socle-2016-0.14-x86_64-20230303
+baseurl = http://repo.infra.dgfip/pub/socles/socle-2016-0.14-x86_64/repos/addons-socle-2016-0.14-x86_64-20230303
 gpgcheck = 1
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-elrepo.org
 enabled = 1
 
-[errata-socle-2016-0.14-x86_64-20230425]
-name = errata-socle-2016-0.14-x86_64-20230425
-baseurl = http://repo.infra.dgfip/pub/socles/socle-2016-0.14-x86_64/repos/errata-socle-2016-0.14-x86_64-20230425
+[errata-socle-2016-0.14-x86_64-20230303]
+name = errata-socle-2016-0.14-x86_64-20230303
+baseurl = http://repo.infra.dgfip/pub/socles/socle-2016-0.14-x86_64/repos/errata-socle-2016-0.14-x86_64-20230303
 gpgcheck = 1
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-elrepo.org
 enabled = 1
