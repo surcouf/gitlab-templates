@@ -16,7 +16,7 @@ stages:
 
 # executed before each job
 before_script:
-  - ${CURL} --url https://forge.dgfip.finances.rie.gouv.fr/dgfip/design/rpm/macros/-/raw/master/macros.rpmautospec >> ~/.rpmmacros
+  - ${CURL} https://forge.dgfip.finances.rie.gouv.fr/dgfip/design/rpm/macros/-/raw/master/macros.rpmautospec >> ~/.rpmmacros
   - git config --global --add safe.directory ${PWD}
   - export NAME=${CI_PROJECT_NAME}
   - export VERSION="${CI_COMMIT_TAG}"
@@ -34,7 +34,7 @@ before_script:
     - cp "/home/rpmbuilder/rpmbuild/RPMS/${ARCH}/${CI_PROJECT_NAME}-${VERSION}-${RELEASE}.${ARCH}.rpm" /var/tmp
     - cp "/home/rpmbuilder/rpmbuild/SRPMS/${CI_PROJECT_NAME}-${VERSION}-${RELEASE}.src.rpm" /var/tmp
     - 'echo ${CURL} -H \"Authorization: Basic ${BASIC_AUTH}\" -T /var/tmp/${CI_PROJECT_NAME}-${VERSION}-${RELEASE}.${ARCH}.rpm ${REPO_URL}'
-    - '${CURL} -H "Authorization: Basic ${BASIC_AUTH}" -T /var/tmp/${CI_PROJECT_NAME}-${VERSION}-${RELEASE}.${ARCH}.rpm --url ${REPO_URL}'
+    - '${CURL} -H "Authorization: Basic ${BASIC_AUTH}" -T /var/tmp/${CI_PROJECT_NAME}-${VERSION}-${RELEASE}.${ARCH}.rpm ${REPO_URL}'
   only:
     - tags
   except:
