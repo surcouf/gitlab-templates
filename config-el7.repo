@@ -5,13 +5,6 @@ gpgcheck = 1
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-elrepo.org
 enabled = 1
 
-[appstream-socle-2016-0.14-x86_64-20230425]
-name = appstream-socle-2016-0.14-x86_64-20230425
-baseurl = http://repo.infra.dgfip/pub/socles/socle-2016-0.14-x86_64/repos/appstream-socle-2016-0.14-x86_64-20230425
-gpgcheck = 1
-gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-elrepo.org
-enabled = 1
-
 [errata-socle-2016-0.14-x86_64-20230425]
 name = errata-socle-2016-0.14-x86_64-20230425
 baseurl = http://repo.infra.dgfip/pub/socles/socle-2016-0.14-x86_64/repos/errata-socle-2016-0.14-x86_64-20230425
