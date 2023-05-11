@@ -5,7 +5,7 @@
 # variables
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
-  CURL: "curl -fSs --noproxy 'rie.gouv.fr, .dgfip' --insecure --write-out '%{http_code}: %{errormsg}'"
+  CURL: "curl -fSs --noproxy \"rie.gouv.fr, .dgfip\" --insecure --write-out \"%{http_code}: %{errormsg}\""
   ARCH: noarch
   REPO_URL: https://venezia.appli.dgfip/authscm/$VENEZIA_USER/ftp/sdeploy/$DIST/puppet-server-conf-servers/
   CONFIG_REPO_URL: https://forge.dgfip.finances.rie.gouv.fr/dgfip/design/gitlab/gitlab-templates/-/raw/master/config-${DIST}.repo
