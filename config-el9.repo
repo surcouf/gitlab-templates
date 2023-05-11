@@ -1,77 +1,77 @@
-[baseos-socle-2022-9.01-x86_64-20230505]
-name = baseos-socle-2022-9.01-x86_64-20230505
-baseurl = http://repo.infra.dgfip/pub/socles/socle-2022-9.01-x86_64/repos/baseos-socle-2022-9.01-x86_64-20230505
+[baseos-socle-2024-9.01-x86_64-20230505]
+name = baseos-socle-2024-9.01-x86_64-20230505
+baseurl = http://repo.infra.dgfip/pub/socles/socle-2024-9.01-x86_64/repos/baseos-socle-2024-9.01-x86_64-20230505
 gpgcheck = 0
 enabled = 1
 proxy = None
 
 
-[appstream-socle-2022-9.01-x86_64-20230505]
-name = appstream-socle-2022-9.01-x86_64-20230505
-baseurl = http://repo.infra.dgfip/pub/socles/socle-2022-9.01-x86_64/repos/appstream-socle-2022-9.01-x86_64-20230505
+[appstream-socle-2024-9.01-x86_64-20230505]
+name = appstream-socle-2024-9.01-x86_64-20230505
+baseurl = http://repo.infra.dgfip/pub/socles/socle-2024-9.01-x86_64/repos/appstream-socle-2024-9.01-x86_64-20230505
 gpgcheck = 1
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rockyofficial
 enabled = 1
 proxy = None
 
 
-[baseos-socle-2022-9.01-x86_64-20230505]
-name = baseos-socle-2022-9.01-x86_64-20230505
-baseurl = http://repo.infra.dgfip/pub/socles/socle-2022-9.01-x86_64/repos/baseos-socle-2022-9.01-x86_64-20230505
+[baseos-socle-2024-9.01-x86_64-20230505]
+name = baseos-socle-2024-9.01-x86_64-20230505
+baseurl = http://repo.infra.dgfip/pub/socles/socle-2024-9.01-x86_64/repos/baseos-socle-2024-9.01-x86_64-20230505
 gpgcheck = 1
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rockyofficial
 enabled = 1
 proxy = None
 
 
-[elrepo-socle-2022-9.01-x86_64-20230505]
-name = elrepo-socle-2022-9.01-x86_64-20230505
-baseurl = http://repo.infra.dgfip/pub/socles/socle-2022-9.01-x86_64/repos/elrepo-socle-2022-9.01-x86_64-20230505
+[elrepo-socle-2024-9.01-x86_64-20230505]
+name = elrepo-socle-2024-9.01-x86_64-20230505
+baseurl = http://repo.infra.dgfip/pub/socles/socle-2024-9.01-x86_64/repos/elrepo-socle-2024-9.01-x86_64-20230505
 gpgcheck = 1
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-elrepo.org
 enabled = 1
 proxy = None
 
 
-[epel-socle-2022-9.01-x86_64-20230505]
-name = epel-socle-2022-9.01-x86_64-20230505
-baseurl = http://repo.infra.dgfip/pub/socles/socle-2022-9.01-x86_64/repos/epel-socle-2022-9.01-x86_64-20230505
+[epel-socle-2024-9.01-x86_64-20230505]
+name = epel-socle-2024-9.01-x86_64-20230505
+baseurl = http://repo.infra.dgfip/pub/socles/socle-2024-9.01-x86_64/repos/epel-socle-2024-9.01-x86_64-20230505
 gpgcheck = 1
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8
 enabled = 1
 proxy = None
 
 
-[extras-socle-2022-9.01-x86_64-20230505]
-name = extras-socle-2022-9.01-x86_64-20230505
-baseurl = http://repo.infra.dgfip/pub/socles/socle-2022-9.01-x86_64/repos/extras-socle-2022-9.01-x86_64-20230505
+[extras-socle-2024-9.01-x86_64-20230505]
+name = extras-socle-2024-9.01-x86_64-20230505
+baseurl = http://repo.infra.dgfip/pub/socles/socle-2024-9.01-x86_64/repos/extras-socle-2024-9.01-x86_64-20230505
 gpgcheck = 1
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rockyofficial
 enabled = 1
 proxy = None
 
 
-[ha-socle-2022-9.01-x86_64-20230505]
-name = ha-socle-2022-9.01-x86_64-20230505
-baseurl = http://repo.infra.dgfip/pub/socles/socle-2022-9.01-x86_64/repos/ha-socle-2022-9.01-x86_64-20230505
+[ha-socle-2024-9.01-x86_64-20230505]
+name = ha-socle-2024-9.01-x86_64-20230505
+baseurl = http://repo.infra.dgfip/pub/socles/socle-2024-9.01-x86_64/repos/ha-socle-2024-9.01-x86_64-20230505
 gpgcheck = 1
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rockyofficial
 enabled = 1
 proxy = None
 
 
-[plus-socle-2022-9.01-x86_64-20230505]
-name = plus-socle-2022-9.01-x86_64-20230505
-baseurl = http://repo.infra.dgfip/pub/socles/socle-2022-9.01-x86_64/repos/plus-socle-2022-9.01-x86_64-20230505
+[plus-socle-2024-9.01-x86_64-20230505]
+name = plus-socle-2024-9.01-x86_64-20230505
+baseurl = http://repo.infra.dgfip/pub/socles/socle-2024-9.01-x86_64/repos/plus-socle-2024-9.01-x86_64-20230505
 gpgcheck = 1
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rockyofficial
 enabled = 1
 proxy = None
 
 
-[powertools-socle-2022-9.01-x86_64-20230505]
-name = powertools-socle-2022-9.01-x86_64-20230505
-baseurl = http://repo.infra.dgfip/pub/socles/socle-2022-9.01-x86_64/repos/powertools-socle-2022-9.01-x86_64-20230505
+[powertools-socle-2024-9.01-x86_64-20230505]
+name = powertools-socle-2024-9.01-x86_64-20230505
+baseurl = http://repo.infra.dgfip/pub/socles/socle-2024-9.01-x86_64/repos/powertools-socle-2024-9.01-x86_64-20230505
 gpgcheck = 1
 gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rockyofficial
 enabled = 1
