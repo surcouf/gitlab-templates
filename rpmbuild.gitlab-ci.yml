@@ -5,7 +5,7 @@
 # variables
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
-  CURL: "curl -fSs --noproxy \"rie.gouv.fr, .dgfip\" --insecure --write-out \"%{http_code}: %{errormsg}\""
+  CURL: "curl -vfSs --noproxy \"rie.gouv.fr, .dgfip\" --insecure --write-out \"%{http_code}: %{errormsg}\""
   ARCH: noarch
   REPO_URL: https://venezia.appli.dgfip/authscm/$VENEZIA_USER/ftp/sdeploy/$DIST/puppet-server-conf-servers/
   CONFIG_REPO_URL: https://forge.dgfip.finances.rie.gouv.fr/dgfip/design/gitlab/gitlab-templates/-/raw/master/config-${DIST}.repo
@@ -33,6 +33,7 @@ before_script:
     - make srpm rpm
     - cp "/home/rpmbuilder/rpmbuild/RPMS/${ARCH}/${CI_PROJECT_NAME}-${VERSION}-${RELEASE}.${ARCH}.rpm" /var/tmp
     - cp "/home/rpmbuilder/rpmbuild/SRPMS/${CI_PROJECT_NAME}-${VERSION}-${RELEASE}.src.rpm" /var/tmp
+    - 'echo ${CURL} -H \"Authorization: Basic ${BASIC_AUTH}\" -T /var/tmp/${CI_PROJECT_NAME}-${VERSION}-${RELEASE}.${ARCH}.rpm ${REPO_URL}'
     - '${CURL} -H "Authorization: Basic ${BASIC_AUTH}" -T /var/tmp/${CI_PROJECT_NAME}-${VERSION}-${RELEASE}.${ARCH}.rpm ${REPO_URL}'
   only:
     - tags
