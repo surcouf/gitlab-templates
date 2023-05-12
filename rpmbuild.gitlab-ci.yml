@@ -44,9 +44,9 @@ buildrpm/el9:
   image: rbordet/rpmbuild-rocky9
   variables:
     DIST: el9
-  only:
+  except:
     variables:
-      - $RPMBUILD_EL9 == "yes"
+      - $RPMBUILD_EL9 == "no"
 
 buildrpm/el8:
   <<: *buildrpm
@@ -54,9 +54,9 @@ buildrpm/el8:
   image: rbordet/rpmbuild-rocky8
   variables:
     DIST: el8
-  only:
+  except:
     variables:
-      - $RPMBUILD_EL8 == "yes"
+      - $RPMBUILD_EL8 == "no"
 
 buildrpm/el7:
   <<: *buildrpm
@@ -64,6 +64,6 @@ buildrpm/el7:
   image: rbordet/rpmbuild-centos7
   variables:
     DIST: el7
-  only:
+  except:
     variables:
-      - $RPMBUILD_EL7 == "yes"
+      - $RPMBUILD_EL7 == "no"
