@@ -32,7 +32,7 @@ before_script:
     - make srpm rpm
     - cp "/home/rpmbuilder/rpmbuild/RPMS/${ARCH}/${CI_PROJECT_NAME}-${VERSION}-${RELEASE}.${ARCH}.rpm" /var/tmp
     - cp "/home/rpmbuilder/rpmbuild/SRPMS/${CI_PROJECT_NAME}-${VERSION}-${RELEASE}.src.rpm" /var/tmp
-    - '${CURL} -H "Authorization: Basic ${BASIC_AUTH}" -T /var/tmp/${CI_PROJECT_NAME}-${VERSION}-${RELEASE}.${ARCH}.rpm ${REPO_URL}'
+    - '${CURL} -H "Authorization: Basic ${BASIC_AUTH}" -T /var/tmp/${CI_PROJECT_NAME}-${VERSION}-${RELEASE}.${ARCH}.rpm ${REPO_URL}/'
   only:
     - tags
   except:
