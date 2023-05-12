@@ -23,6 +23,7 @@ before_script:
   - export RELEASE="$(rpmspec -q --qf '%{release}' ${CI_PROJECT_NAME}.spec)"
   - sudo yum-config-manager --disable '*' >/dev/null
   - sudo yum-config-manager --add-repo=${CONFIG_REPO_URL}
+  - sudo sed -i -e '/HOME/ s/^# (Defaults)/\1/' /etc/sudoers
 
 .buildrpm: &buildrpm
   tags:
