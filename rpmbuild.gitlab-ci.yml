@@ -7,7 +7,7 @@ variables:
   GIT_SUBMODULE_STRATEGY: recursive
   CURL: "curl -fSs --noproxy 'rie.gouv.fr' --insecure"
   ARCH: noarch
-  REPO_URL: https://venezia.appli.dgfip/authscm/$VENEZIA_USER/ftp/sdeploy/$DIST/$CI_PROJECT_NAME
+  REPO_URL: https://venezia.appli.dgfip/authscm/$VENEZIA_USER/ftp/sdeploy/$DIST/$CI_PROJECT_NAME/
   CONFIG_REPO_URL: https://forge.dgfip.finances.rie.gouv.fr/dgfip/design/gitlab/gitlab-templates/-/raw/master/config-${DIST}.repo
    
 # The ordering of elements in stages defines the ordering of jobs' execution
