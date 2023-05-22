@@ -45,6 +45,7 @@ buildrpm/el9:
   image: rbordet/rpmbuild-rocky9
   variables:
     DIST: el9
+    CONFIG_REPO_URL: http://repo.infra.dgfip/pub/distros/rockylinux-9-x86_64/rockylinux-9-x86_64.repo
   except:
     variables:
       - $RPMBUILD_EL9 == "no"
