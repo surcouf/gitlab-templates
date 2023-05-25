@@ -16,20 +16,19 @@ stages:
 
 # executed before each job
 before_script:
-  - ${CURL} https://forge.dgfip.finances.rie.gouv.fr/dgfip/design/rpm/macros/-/raw/master/macros.rpmautospec >> ~/.rpmmacros
+  - ${CURL} https://forge.dgfip.finances.rie.gouv.fr/dgfip/design/rpm/macros/-/raw/master/macros.rpmautospec -o /etc/rpm/macros.rpmautospec
   - git config --global --add safe.directory ${PWD}
   - export NAME=${CI_PROJECT_NAME}
   - export VERSION="${CI_COMMIT_TAG}"
   - export RELEASE="$(rpmspec -q --qf '%{release}' ${CI_PROJECT_NAME}.spec)"
   - sudo yum-config-manager --disable '*' >/dev/null
   - sudo yum-config-manager --add-repo=${CONFIG_REPO_URL}
-  - sudo sed -i -re '/HOME/ s/^# (Defaults)/\1/' /etc/sudoers
 
 .buildrpm: &buildrpm
   tags:
     - rpmbuild
   script:
-    - sudo -E yum-builddep -y ${NAME}.spec
+    - sudo yum-builddep -y ${NAME}.spec
     - make srpm rpm
     - cp "/home/rpmbuilder/rpmbuild/RPMS/${ARCH}/${CI_PROJECT_NAME}-${VERSION}-${RELEASE}.${ARCH}.rpm" /var/tmp
     - cp "/home/rpmbuilder/rpmbuild/SRPMS/${CI_PROJECT_NAME}-${VERSION}-${RELEASE}.src.rpm" /var/tmp
