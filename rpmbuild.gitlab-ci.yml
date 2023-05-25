@@ -16,7 +16,7 @@ stages:
 
 # executed before each job
 before_script:
-  - ${CURL} https://forge.dgfip.finances.rie.gouv.fr/dgfip/design/rpm/macros/-/raw/master/macros.rpmautospec -o /etc/rpm/macros.rpmautospec
+  - sudo ${CURL} https://forge.dgfip.finances.rie.gouv.fr/dgfip/design/rpm/macros/-/raw/master/macros.rpmautospec -o /etc/rpm/macros.rpmautospec
   - git config --global --add safe.directory ${PWD}
   - export NAME=${CI_PROJECT_NAME}
   - export VERSION="${CI_COMMIT_TAG}"
