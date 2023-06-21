@@ -28,7 +28,7 @@ before_script:
   tags:
     - rpmbuild
   script:
-    - sudo yum-builddep -y ${NAME}.spec
+    - sudo -E yum-builddep -y ${NAME}.spec
     - make srpm rpm
     - cp "/home/rpmbuilder/rpmbuild/RPMS/${ARCH}/${CI_PROJECT_NAME}-${VERSION}-${RELEASE}.${ARCH}.rpm" /var/tmp
     - cp "/home/rpmbuilder/rpmbuild/SRPMS/${CI_PROJECT_NAME}-${VERSION}-${RELEASE}.src.rpm" /var/tmp
