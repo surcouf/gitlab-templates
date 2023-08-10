@@ -14,7 +14,7 @@ variables:
 stages:
   - buildrpm
 
-.buildrpm: &buildrpm
+.buildrpm:
   tags:
     - rpmbuild
 # executed before each job
@@ -39,7 +39,7 @@ stages:
     - branches
 
 buildrpm/el9:
-  <<: *buildrpm
+  extends: .buildrpm
   stage: buildrpm
   image: rbordet/rpmbuild-rocky9
   variables:
@@ -50,7 +50,7 @@ buildrpm/el9:
       - $RPMBUILD_EL9 == "no"
 
 buildrpm/el8:
-  <<: *buildrpm
+  extends: .buildrpm
   stage: buildrpm
   image: rbordet/rpmbuild-rocky8
   variables:
@@ -61,7 +61,7 @@ buildrpm/el8:
       - $RPMBUILD_EL8 == "no"
 
 buildrpm/el7:
-  <<: *buildrpm
+  extends: .buildrpm
   stage: buildrpm
   image: rbordet/rpmbuild-centos7
   variables:
