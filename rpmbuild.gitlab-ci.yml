@@ -14,22 +14,22 @@ variables:
 stages:
   - buildrpm
 
-# executed before each job
-before_script:
-  - sudo ${CURL} https://forge.dgfip.finances.rie.gouv.fr/dgfip/design/rpm/macros/-/raw/master/macros.rpmautospec -o /etc/rpm/macros.rpmautospec
-  - git config --global --add safe.directory ${PWD}
-  - export NAME=${CI_PROJECT_NAME}
-  - export VERSION="${CI_COMMIT_TAG}"
-  - export RELEASE="$(rpmspec -q --qf '%{release}' ${CI_PROJECT_NAME}.spec)"
-  - sudo yum-config-manager --disable '*' >/dev/null
-  - sudo yum-config-manager --add-repo=${CONFIG_REPO_URL}
-
 .buildrpm: &buildrpm
   tags:
     - rpmbuild
-  script:
+# executed before each job
+  before_script:
+    - sudo ${CURL} https://forge.dgfip.finances.rie.gouv.fr/dgfip/design/rpm/macros/-/raw/master/macros.rpmautospec -o /etc/rpm/macros.rpmautospec
+    - git config --global --add safe.directory ${PWD}
+    - export NAME=${CI_PROJECT_NAME}
+    - export VERSION="${CI_COMMIT_TAG}"
+    - export RELEASE="$(rpmspec -q --qf '%{release}' ${CI_PROJECT_NAME}.spec)"
+    - sudo yum-config-manager --disable '*' >/dev/null
+    - sudo yum-config-manager --add-repo=${CONFIG_REPO_URL}
     - sudo -E yum-builddep -y ${NAME}.spec
+  script:
     - make srpm rpm
+  after_script:
     - cp "/home/rpmbuilder/rpmbuild/RPMS/${ARCH}/${CI_PROJECT_NAME}-${VERSION}-${RELEASE}.${ARCH}.rpm" /var/tmp
     - cp "/home/rpmbuilder/rpmbuild/SRPMS/${CI_PROJECT_NAME}-${VERSION}-${RELEASE}.src.rpm" /var/tmp
     - '${CURL} -H "Authorization: Basic ${BASIC_AUTH}" -T /var/tmp/${CI_PROJECT_NAME}-${VERSION}-${RELEASE}.${ARCH}.rpm ${REPO_URL}/'
