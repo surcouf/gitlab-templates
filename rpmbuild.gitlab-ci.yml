@@ -9,6 +9,7 @@ variables:
   ARCH: noarch
   REPO_URL: https://venezia.appli.dgfip/authscm/$VENEZIA_USER/ftp/sdeploy/$DIST/$CI_PROJECT_NAME
   CONFIG_REPO_URL: https://forge.dgfip.finances.rie.gouv.fr/dgfip/design/gitlab/gitlab-templates/-/raw/master/config-${DIST}.repo
+  NAME: ${CI_PROJECT_NAME}
    
 # The ordering of elements in stages defines the ordering of jobs' execution
 stages:
@@ -21,14 +22,14 @@ stages:
   before_script:
     - sudo ${CURL} https://forge.dgfip.finances.rie.gouv.fr/dgfip/design/rpm/macros/-/raw/master/macros.rpmautospec -o /etc/rpm/macros.rpmautospec
     - git config --global --add safe.directory ${PWD}
-    - export NAME=${CI_PROJECT_NAME}
+    - export NAME
     - export VERSION="${CI_COMMIT_TAG}"
     - export RELEASE="$(rpmspec -q --qf '%{release}' ${CI_PROJECT_NAME}.spec)"
     - sudo yum-config-manager --disable '*' >/dev/null
     - sudo yum-config-manager --add-repo=${CONFIG_REPO_URL}
     - sudo -E yum-builddep -y ${NAME}.spec
   script:
-    - tar -C ../ --exclude-vcs -czf $(rpm --eval '%_sourcedir')/$(rpmspec -q --qf "%{Name}-%{Version}.tar.gz\n" ${NAME}.spec) ${CI_PROJECT_NAME}
+    - tar --exclude-vcs --transform='s%^%${NAME}-${VERSION}/%rS' -czf $(rpm --eval '%_sourcedir')/${NAME}-${VERSION}.tar.gz *
     - rpmbuild -ba ${NAME}.spec
   after_script:
     - cp "/home/rpmbuilder/rpmbuild/RPMS/${ARCH}/${CI_PROJECT_NAME}-${VERSION}-${RELEASE}.${ARCH}.rpm" /var/tmp
