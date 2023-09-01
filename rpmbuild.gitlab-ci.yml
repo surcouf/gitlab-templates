@@ -29,7 +29,7 @@ stages:
     - sudo yum-config-manager --add-repo=${CONFIG_REPO_URL}
     - sudo -E yum-builddep -y ${NAME}.spec
   script:
-    - tar --exclude-vcs --transform="s%^%${NAME}-${VERSION}/%rS" -czf $(rpm --eval '%_sourcedir')/${NAME}-${VERSION}.tar.gz *
+    - tar --exclude-vcs --transform='s%^%${NAME}-${VERSION}/%rS' -czf $(rpm --eval '%_sourcedir')/${NAME}-${VERSION}.tar.gz *
     - rpmbuild -ba ${NAME}.spec
   after_script:
     - cp "/home/rpmbuilder/rpmbuild/RPMS/${ARCH}/${CI_PROJECT_NAME}-${VERSION}-${RELEASE}.${ARCH}.rpm" /var/tmp
