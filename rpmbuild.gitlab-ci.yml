@@ -48,9 +48,8 @@ buildrpm/el9:
   variables:
     DIST: el9
     CONFIG_REPO_URL: http://repo.infra.dgfip/pub/distros/rockylinux-9-x86_64/rockylinux-9-x86_64.repo
-  except:
-    variables:
-      - $RPMBUILD_EL9 == "no"
+  rules:
+    - if: $RPMBUILD_EL9 != "no"
 
 buildrpm/el8:
   extends: .buildrpm
@@ -59,9 +58,8 @@ buildrpm/el8:
   variables:
     DIST: el8
     CONFIG_REPO_URL: http://repo.infra.dgfip/pub/socles/socle-2022-8.04-x86_64/config.repo/socle-2022-8.04-x86_64-depot-20230517.repo
-  except:
-    variables:
-      - $RPMBUILD_EL8 == "no"
+  rules:
+    - if: $RPMBUILD_EL8 != "no"
 
 buildrpm/el7:
   extends: .buildrpm
@@ -69,6 +67,5 @@ buildrpm/el7:
   image: rbordet/rpmbuild-centos7
   variables:
     DIST: el7
-  except:
-    variables:
-      - $RPMBUILD_EL7 == "no"
+  rules:
+    - if: $RPMBUILD_EL7 != "no"
