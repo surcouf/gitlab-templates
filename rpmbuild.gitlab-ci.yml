@@ -33,8 +33,7 @@ stages:
     - cp "/home/rpmbuilder/rpmbuild/SRPMS/${CI_PROJECT_NAME}-${CI_COMMIT_TAG}-${RELEASE}.src.rpm" /var/tmp
     - '${CURL} -H "Authorization: Basic ${BASIC_AUTH}" -T /var/tmp/${CI_PROJECT_NAME}-${CI_COMMIT_TAG}-${RELEASE}.${ARCH}.rpm ${REPO_URL}/'
   rules:
-    - if: $CI_COMMIT_REF_NAME != $CI_COMMIT_TAG
-      when: never
+    - if: $CI_COMMIT_REF_NAME == $CI_COMMIT_TAG
 
 buildrpm/el9:
   extends: .buildrpm
