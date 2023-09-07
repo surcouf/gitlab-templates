@@ -36,10 +36,6 @@ stages:
     - tags
   except:
     - branches
-  rules:
-    - if: $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
-      variables:
-        DIST: $DIST.$CI_COMMIT_REF_NAME
 
 buildrpm/el9:
   extends: .buildrpm
