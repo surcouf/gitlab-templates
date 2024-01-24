@@ -69,3 +69,13 @@ buildrpm/el7:
   except:
     variables:
       - $RPMBUILD_EL7 == "no"
+
+buildrpm/el6:
+  extends: .buildrpm
+  stage: buildrpm
+  image: rbordet/rpmbuild-centos6
+  variables:
+    DIST: el6
+  except:
+    variables:
+      - $RPMBUILD_EL6 == "no"
