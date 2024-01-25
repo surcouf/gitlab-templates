@@ -1,0 +1,19 @@
+[addons-socle-2012-1.28-jboss430-x86_64]
+name = addons-socle-2012-1.28-jboss430-x86_64
+baseurl = http://repo.infra.dgfip/pub/socles/socle-2012-1.28-jboss430-x86_64/repos/addons-socle-2012-1.28-jboss430-x86_64
+gpgcheck = 1
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-elrepo.org
+enabled = 1
+
+[errata-socle-2012-1.28-jboss430-x86_64]
+name = errata-socle-2012-1.28-jboss430-x86_64
+baseurl = http://repo.infra.dgfip/pub/socles/socle-2012-1.28-jboss430-x86_64/repos/errata-socle-2012-1.28-jboss430-x86_64
+gpgcheck = 1
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-elrepo.org
+enabled = 1
+
+[2012-x86_64-security-sp7-201704]
+name = 2012-x86_64-security-sp7-201704
+baseurl = http://repo.infra.dgfip/pub/socles/socle-2012-1.28-jboss430-x86_64/repos/2012-x86_64-security-sp7-201704
+gpgcheck = 1
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-elrepo.org
