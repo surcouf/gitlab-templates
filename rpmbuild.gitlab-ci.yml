@@ -76,8 +76,8 @@ buildrpm/el6:
     - git config --global --add safe.directory ${PWD}
     - export HOST="${CI_PROJECT_NAME//*-}"
     - export VERSION="${CI_COMMIT_TAG}"
-    - export RELEASE="$(grep '^Release:' ${CI_PROJECT_NAME}.spec |cut -d':' -f2)"
-    - export NAME="$(grep '^Name:' ${CI_PROJECT_NAME}.spec |cut -d':' -f2 |sed s/%{server}/$HOST/)"
+    - export RELEASE="$(grep '^Release:' ${CI_PROJECT_NAME}.spec |cut -d':' -f2| sed 's/ //g')"
+    - export NAME="$(grep '^Name:' ${CI_PROJECT_NAME}.spec |cut -d':' -f2 |sed s/%{server}/$HOST/| sed 's/ //g')"
     - sudo yum-config-manager --add-repo=${CONFIG_REPO_URL}
     - sudo yum-config-manager --disable 'C6.10-*' >/dev/null
     - sudo -E yum-builddep -y ${CI_PROJECT_NAME}.spec
